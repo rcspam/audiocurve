@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=AudioCurve
+GenericName=Audio Curve Generator for Natron
+Comment=Create curve data from audio
+Exec=audiocurve-gui
+Icon=audiocurve
+Terminal=false
+Type=Application
+StartupNotify=false
+Categories=Graphics;Audio;
+X-Desktop-File-Install-Version=0.21
