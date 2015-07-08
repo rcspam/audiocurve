@@ -1,0 +1,14 @@
+QT += core
+QT -= gui
+TARGET = audiocurve
+CONFIG += console
+CONFIG -= app_bundle
+TEMPLATE = app
+SOURCES += audiocurve.cpp sox.cpp
+HEADERS += sox.h
+QMAKE_CLEAN += Makefile target
+DESTDIR = build
+OBJECTS_DIR = $$DESTDIR/tmp
+MOC_DIR = $$DESTDIR/tmp
+RCC_DIR = $$DESTDIR/tmp
+UI_DIR = $$DESTDIR/tmp
