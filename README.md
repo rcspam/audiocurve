@@ -15,4 +15,4 @@ Require QtCore and SoX. QtGui if you want the gui version.
 
 # History
 
-Based on the [audio2ascii](https://github.com/rcspam/audio2ascii) script by @rcspam, written from scratch in Qt for cross-platform support.
+Based on the [audio2ascii](https://github.com/rcspam/audio2ascii) script by [@rcspam](https://github.com/rcspam), written from scratch in Qt for cross-platform support.
