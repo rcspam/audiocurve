@@ -1,11 +1,18 @@
-# audiocurve
-Audio curve generator for Natron
+# AudioCurve
+Convert your audio to curves compatible with Natron.
 
-# Build/Install
+# Source
 
 ```
+git clone https://github.com/olear/audiocurve
+cd audiocurve
 qmake(-qt4|-qt5) && make
 ```
 
-Copy audiocurve.py build/audiocurve(.exe) audiocurve.png to your Natron plugin folder. Sox must be available for this plugin to work.
+# Requirements
 
+Require QtCore and SoX. QtGui if you want the gui version.
+
+# History
+
+Based on the [audio2ascii](https://github.com/rcspam/audio2ascii) script by @rcspam, written from scratch in Qt for cross-platform support.
