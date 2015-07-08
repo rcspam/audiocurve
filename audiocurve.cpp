@@ -93,6 +93,10 @@ int main(int argc, char *argv[])
                     stream << data;
                     output.close();
                 }
+                else {
+                    qDebug() << "Failed to write to file";
+                    return 1;
+                }
             }
             else {
                 qDebug() << data;
