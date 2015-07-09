@@ -34,11 +34,11 @@ def audioCurve(audioFileATA, asciiFileATA, dimATA, fpsATA, durationATA, xHeightA
     ret_a2a = os.system("audiocurve/audiocurve -input \""+str(audioFileATA)+"\" -output \""+str(asciiFileATA)+"\" -"+str(dimATA)+" -fps "+str(fpsATA)+" -frames "+str(durationATA)+" -cX "+str(xHeightATA)+" -cY "+str(yHeightATA));
     return ret_a2a
 
-def animCurves(thisParam, fileAC, dimAC, fpsAC, durationAC ,frameStartAC):
+def animCurves(thisParam, fileAC, dimAC, durationAC ,frameStartAC):
     # ascii file
     asciiAC = open(fileAC, "r")
     # end frame
-    lineAC = int(fpsAC) * int(durationAC) + int(frameStartAC)
+    lineAC = int(durationAC) + int(frameStartAC)
     # anim x
     if dimAC == 0:
         # reset x before recalculate
@@ -84,7 +84,7 @@ def paramHasChanged(thisParam, thisNode, thisGroup, app, userEdited):
         # test and wait end of audio2ascii 
         if ret_exec == 0:
             # calculate animation 
-            animCurves(thisNode.curveIn, ascii_file, thisNode.dimEnsion.get(), thisNode.framesPerSec.get(), thisNode.duraTion.get(), thisNode.atFrameNum.get())
+            animCurves(thisNode.curveIn, ascii_file, thisNode.dimEnsion.get(), thisNode.duraTion.get(), thisNode.atFrameNum.get())
             
 
 ## / extra defs
@@ -150,7 +150,7 @@ def createInstance(app,group):
 
 
     #Create the user-parameters
-    lastNode.userNatron = lastNode.createPageParam("userNatron", "User")
+    lastNode.userNatron = lastNode.createPageParam("userNatron", "Settings")
     param = lastNode.createFileParam("inputFile", "Audio File")
     param.setSequenceEnabled(False)
 
@@ -206,7 +206,7 @@ def createInstance(app,group):
     lastNode.dimEnsion = param
     del param
 
-    param = lastNode.createIntParam("framesPerSec", "Frames / sec")
+    param = lastNode.createIntParam("framesPerSec", "Frames Rate")
     param.setDisplayMinimum(0, 0)
     param.setDisplayMaximum(100, 0)
     param.setDefaultValue(24, 0)
