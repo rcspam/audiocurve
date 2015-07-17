@@ -31,7 +31,7 @@ def getDescription():
 # extra defs added
 
 def audioCurve(audioFileATA, asciiFileATA, dimATA, fpsATA, durationATA, xHeightATA, yHeightATA):
-    ret_a2a = os.system(str(os.path.dirname(os.path.realpath(__file__)))+"/AudioCurve/audiocurve -input \""+str(audioFileATA)+"\" -output \""+str(asciiFileATA)+"\" -"+str(dimATA)+" -fps "+str(fpsATA)+" -frames "+str(durationATA)+" -cX "+str(xHeightATA)+" -cY "+str(yHeightATA));
+    ret_a2a = os.system(str(os.path.dirname(os.path.realpath(__file__)))+"/AudioCurve -input \""+str(audioFileATA)+"\" -output \""+str(asciiFileATA)+"\" -"+str(dimATA)+" -fps "+str(fpsATA)+" -frames "+str(durationATA)+" -cX "+str(xHeightATA)+" -cY "+str(yHeightATA));
     return ret_a2a
 
 def animCurves(thisParam, fileAC, dimAC, durationAC ,frameStartAC):
