@@ -1,9 +1,9 @@
 #include <QCoreApplication>
 #include <QStringList>
 #include <QDebug>
-#include "sox.h"
 #include <QFile>
 #include <QDir>
+#include "sox.h"
 
 int main(int argc, char *argv[])
 {
@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
         }
     }
     if (!filename.isEmpty() && (curveX||curveY) && fps>0 && frames>0 && (heightX>0||heightY>0)) {
-        QString data = audio.dat(filename,fps,frames,curveX,curveY,heightX,heightY);
+        QString data = audio.dat(QDir::toNativeSeparators(filename),fps,frames,curveX,curveY,heightX,heightY);
         if (data.isEmpty()) {
             qDebug() << "Unable to generate curve data";
             return 1;
@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
                     output.close();
                 }
                 else {
-                    qDebug() << "Failed to write to file";
+                    qDebug() << output.errorString();
                     return 1;
                 }
             }
