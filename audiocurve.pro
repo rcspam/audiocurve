@@ -1,6 +1,6 @@
 QT += core
 QT -= gui
-TARGET = audiocurve
+TARGET = AudioCurve
 CONFIG += console
 CONFIG -= app_bundle
 TEMPLATE = app
@@ -11,4 +11,3 @@ DESTDIR = build
 OBJECTS_DIR = $$DESTDIR/tmp
 MOC_DIR = $$DESTDIR/tmp
 RCC_DIR = $$DESTDIR/tmp
-UI_DIR = $$DESTDIR/tmp
