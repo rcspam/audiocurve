@@ -7,6 +7,7 @@ TEMPLATE = app
 SOURCES += audiocurve.cpp sox.cpp
 HEADERS += sox.h
 QMAKE_CLEAN += Makefile target
+OTHER_FILES += README.md LICENSE
 DESTDIR = build
 OBJECTS_DIR = $$DESTDIR/tmp
 MOC_DIR = $$DESTDIR/tmp
