@@ -1,7 +1,7 @@
 #include <QCoreApplication>
 #include <QStringList>
 #include <QDebug>
-#include <sox.h>
+#include "sox.h"
 #include <QFile>
 #include <QDir>
 
