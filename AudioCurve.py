@@ -35,7 +35,7 @@ def audioCurve(audioFileATA, asciiFileATA, dimATA, fpsATA, durationATA, xHeightA
     return ret_a2a
 
 def animCurves(thisParam, fileAC, dimAC, durationAC ,frameStartAC):
-    # ascii file #TODO delete file when done
+    # ascii file #TODO  dont work on win32!
     asciiAC = open(fileAC, "r")
     # end frame
     lineAC = int(durationAC) + int(frameStartAC)
@@ -172,11 +172,10 @@ def createInstance(app,group):
 
     #Set param properties
     param.setHelp("")
-    param.setVisible(False)
+    #param.setVisible(False)
     param.setAddNewLine(True)
     param.setAnimationEnabled(False)
-    tf = tempfile.NamedTemporaryFile()
-    param.setDefaultValue(tf.name)
+    param.setDefaultValue(os.path.join(tempfile.gettempdir(),"audiocurve"))
     lastNode.curveFile = param
     del param
 
