@@ -12,7 +12,7 @@ qmake(-qt4|-qt5) && make
 
 # Requirements
 
-Require QtCore and SoX. QtGui if you want the gui version.
+Require QtCore and SoX.
 
 # History
 
