@@ -20,7 +20,7 @@ def getVersion():
     return 1
 
 def getIconPath():
-    return "audiocurve.png"
+    return "AudioCurve.png"
 
 def getGrouping():
     return "Read"

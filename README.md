@@ -7,9 +7,14 @@ Convert your audio to curves in Natron.
 ```
 git clone https://github.com/olear/audiocurve
 cd audiocurve
-qmake(-qt4|-qt5) && make
-cp AudioCurve.* build/AudioCurve ~/.local/share/INRIA/Natron/Plugins/
-yum install sox|apt-get install sox
+qmake(-qt4|-qt5)
+make install
+```
+
+Remember to install SoX (on Linux):
+```
+yum install sox
+apt-get install sox
 ```
 
 # History
