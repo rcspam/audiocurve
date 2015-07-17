@@ -81,7 +81,6 @@ int main(int argc, char *argv[])
             foundHeightY = false;
         }
     }
-    qDebug() << filename << tmpfile << fps << frames << curveX << curveY << heightX << heightY;
     if (!filename.isEmpty() && (curveX||curveY) && fps>0 && frames>0 && (heightX>0||heightY>0)) {
         QString data = audio.dat(filename,fps,frames,curveX,curveY,heightX,heightY);
         if (data.isEmpty()) {
