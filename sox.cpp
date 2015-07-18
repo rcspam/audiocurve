@@ -133,15 +133,15 @@ QString Sox::dat(QString filename, float fps, int duration, bool x, bool y, int 
                     if (posCurr==1 && x) {
                         dat.append(QString::number(pos.toDouble()*xFactor/maxX,'f',10));
                         if (!y) {
-                            dat.append("_0.00000");
+                            //dat.append("_0.00000");
                             dat.append("\n");
                         }
                     }
                     if (posCurr==2 && y) {
                         if (x)
                             dat.append("_");
-                        else
-                            dat.append("0.00000_");
+                        //else
+                            //dat.append("0.00000_");
                         dat.append(QString::number(pos.toDouble()*yFactor/maxY,'f',10)+"\n");
                     }
                     posCurr++;
