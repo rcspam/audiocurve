@@ -64,7 +64,7 @@ QString Sox::formats()
     return result;
 }
 
-QString Sox::dat(QString filename, int fps, int duration, bool x, bool y, int xFactor, int yFactor)
+QString Sox::dat(QString filename, float fps, int duration, bool x, bool y, int xFactor, int yFactor)
 {
     emit status(tr("Generating data ..."));
     QString result;
@@ -154,9 +154,9 @@ QString Sox::dat(QString filename, int fps, int duration, bool x, bool y, int xF
     return result;
 }
 
-int Sox::duration(QString filename, int fps)
+float Sox::duration(QString filename, float fps)
 {
-    int result = 0;
+    float result = 0;
     QString tmp;
     if (!bin().isEmpty()) {
         QProcess proc;
@@ -171,7 +171,7 @@ int Sox::duration(QString filename, int fps)
         QStringList lines = tmp.split("\n");
         foreach(QString line, lines) {
             if (line.startsWith("Length (seconds):"))
-                result = qRound(line.simplified().remove("Length (seconds): ").toDouble());
+                result = line.simplified().remove("Length (seconds): ").toFloat();
         }
     }
     if (fps>0 && result>0)

@@ -205,7 +205,7 @@ def createInstance(app,group):
     lastNode.dimEnsion = param
     del param
 
-    param = lastNode.createIntParam("framesPerSec", "FPS")
+    param = lastNode.createDoubleParam("framesPerSec", "FPS")
     param.setDisplayMinimum(0, 0)
     param.setDisplayMaximum(100, 0)
     param.setDefaultValue(24, 0)
