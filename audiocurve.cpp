@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     QString tmpfile;
     bool curveX = false;
     bool curveY = false;
-    int fps = 0;
+    float fps = 0;
     int frames = 0;
     int heightX = 0;
     int heightY = 0;
@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
             foundFps = true;
         if (foundFps && args.at(i)!="-fps") {
             if (!args.at(i).isEmpty())
-                fps = args.at(i).toInt();
+                fps = args.at(i).toFloat();
             foundFps = false;
         }
         if (args.at(i)=="-frames")
