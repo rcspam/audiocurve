@@ -8,7 +8,7 @@ import NatronEngine
 
 # extra lib added
 import os, time, tempfile
-from os import *
+from os import path
 
 def getPluginID():
     return "AudioCurve"
