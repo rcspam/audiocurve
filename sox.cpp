@@ -1,3 +1,31 @@
+/*
+# AudioCurve
+#
+# Copyright (c) 2015, Ole-André Rodlie <olear@fxarena.net>
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+# * Redistributions of source code must retain the above copyright notice, this
+#   list of conditions and the following disclaimer.
+#
+# * Redistributions in binary form must reproduce the above copyright notice,
+#   this list of conditions and the following disclaimer in the documentation
+#   and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
 #include "sox.h"
 #include <QFile>
 #include <QDir>
@@ -64,7 +92,7 @@ QString Sox::formats()
     return result;
 }
 
-QString Sox::dat(QString filename, float fps, int duration, bool x, bool y, int xFactor, int yFactor)
+QString Sox::dat(QString filename, float fps, int duration, bool x, bool y, int xFactor, int yFactor, bool forceNull)
 {
     emit status(tr("Generating data ..."));
     QString result;
@@ -133,15 +161,18 @@ QString Sox::dat(QString filename, float fps, int duration, bool x, bool y, int 
                     if (posCurr==1 && x) {
                         dat.append(QString::number(pos.toDouble()*xFactor/maxX,'f',10));
                         if (!y) {
-                            //dat.append("_0.00000");
+                            if (forceNull)
+                                dat.append("_0.00000");
                             dat.append("\n");
                         }
                     }
                     if (posCurr==2 && y) {
                         if (x)
                             dat.append("_");
-                        //else
-                            //dat.append("0.00000_");
+                        else {
+                            if (forceNull)
+                                dat.append("0.00000_");
+                        }
                         dat.append(QString::number(pos.toDouble()*yFactor/maxY,'f',10)+"\n");
                     }
                     posCurr++;
